@@ -1,0 +1,102 @@
+<section id="content">
+  <main>
+    <div class="head-title">
+      <div class="left">
+        <h1>Registrations</h1>
+        <ul class="breadcrumb">
+          <li>
+            <a href="#">Admin</a>
+          </li>
+          <li><i class='bx bxs-chevron-right'></i></li>
+          <li><a routerLink="/registrations" class="active">registrations</a></li>
+        </ul>
+      </div>
+      <button
+        class="btn-add mat-elevation-z8"
+        mat-raised-button
+        (click)="addDialog()"
+      >
+        <i class="bx bx-plus-circle"></i>
+        <span class="text">Add Registration</span>
+      </button>
+    </div>
+    <div class="head-table">
+      <mat-card>
+        <mat-card-content>
+          <h3 class="card-title">Registration List</h3>
+          <mat-form-field>
+            <mat-label>Search Registration...</mat-label>
+            <input
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder="Ex. Olahraga"
+              #input
+            />
+          </mat-form-field>
+          <div class="table-container mat-elevation-z0">
+            <table mat-table [dataSource]="dataSource" matSort>
+              <ng-container matColumnDef="studentName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Student Name</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.student.name }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="extracurricularName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Extracurricular Name</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.extracurricular.name }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="mentorName">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Mentor Name</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.extracurricular.mentor.name }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="startDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ convertDate(element.extracurricular.startDate) }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="endDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>End Date</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ convertDate(element.extracurricular.endDate) }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="grade">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Grade</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.student.grade }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.description }}
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+
+            <mat-paginator
+              [pageSizeOptions]="[5, 10, 20]"
+              showFirstLastButtons
+              aria-label="Select page of periodic elements"
+            >
+            </mat-paginator>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </main>
+</section>

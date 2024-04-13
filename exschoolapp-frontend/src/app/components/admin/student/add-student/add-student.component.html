@@ -1,0 +1,64 @@
+<form [formGroup]="studentForm" (ngSubmit)="submit()">
+  <h2 mat-dialog-title>Add Student</h2>
+  <mat-dialog-content class="mat-typography">
+    <mat-form-field class="form-first" appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Name"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        formControlName="email"
+        placeholder="Email"
+        type="email"
+        ngModel email
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Date Of Birth</mat-label>
+      <input matInput [matDatepicker]="dateOfBirth" formControlName="dateOfBirth" placeholder="Date Of Birth (MM/DD/YYYY)"/>
+      <mat-datepicker-toggle matIconSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+      <mat-datepicker #dateOfBirth></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Gender</mat-label>
+      <mat-select [(value)]="selectedGender" formControlName="gender">
+        <mat-option *ngFor="let gender of genders" [value]="gender">{{ gender }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="address" placeholder="Address"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Phone Number</mat-label>
+      <input matInput formControlName="phoneNumber" placeholder="Phone Number"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Grade</mat-label>
+      <mat-select [(value)]="selectedGrade" formControlName="grade">
+        <mat-option *ngFor="let grade of grades" [value]="grade">{{ grade }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button color="accent" mat-dialog-close>Cancel</button>
+    <button
+      mat-button
+      color="primary"
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+      type="submit"
+    >
+      Submit
+    </button>
+  </mat-dialog-actions>
+</form>

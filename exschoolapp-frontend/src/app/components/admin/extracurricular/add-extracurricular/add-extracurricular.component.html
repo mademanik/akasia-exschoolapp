@@ -1,0 +1,74 @@
+<form [formGroup]="extracurricularForm" (ngSubmit)="submit()">
+  <h2 mat-dialog-title>Add Extracurricular</h2>
+  <mat-dialog-content class="mat-typography">
+    <mat-form-field class="form-first" appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" placeholder="Name"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Start Date</mat-label>
+      <input matInput [matDatepicker]="startDate" formControlName="startDate" placeholder="Start Date (MM/DD/YYYY)"/>
+      <mat-datepicker-toggle matIconSuffix [for]="startDate"></mat-datepicker-toggle>
+      <mat-datepicker #startDate></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>End Date</mat-label>
+      <input matInput [matDatepicker]="endDate" formControlName="endDate" placeholder="End Date (MM/DD/YYYY)"/>
+      <mat-datepicker-toggle matIconSuffix [for]="endDate"></mat-datepicker-toggle>
+      <mat-datepicker #endDate></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Registration Start Date</mat-label>
+      <input matInput [matDatepicker]="registrationStartDate" formControlName="registrationStartDate"
+             placeholder="Registration Start Date (MM/DD/YYYY)"/>
+      <mat-datepicker-toggle matIconSuffix [for]="registrationStartDate"></mat-datepicker-toggle>
+      <mat-datepicker #registrationStartDate></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Registration End Date</mat-label>
+      <input matInput [matDatepicker]="registrationEndDate" formControlName="registrationEndDate"
+             placeholder="Registration End Date (MM/DD/YYYY)"/>
+      <mat-datepicker-toggle matIconSuffix [for]="registrationEndDate"></mat-datepicker-toggle>
+      <mat-datepicker #registrationEndDate></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Location</mat-label>
+      <input matInput formControlName="location" placeholder="Location"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" placeholder="Description"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Quota</mat-label>
+      <input matInput formControlName="quota" placeholder="Quota"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Mentor</mat-label>
+      <mat-select [(value)]="selectedMentor" formControlName="mentorId">
+        <mat-option *ngFor="let mentor of mentors" [value]="mentor.id">{{ mentor.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button color="accent" mat-dialog-close>Cancel</button>
+    <button
+      mat-button
+      color="primary"
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+      type="submit"
+    >
+      Submit
+    </button>
+  </mat-dialog-actions>
+</form>

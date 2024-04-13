@@ -1,0 +1,39 @@
+<form [formGroup]="registrationForm" (ngSubmit)="submit()">
+  <h2 mat-dialog-title>Add Registration</h2>
+  <mat-dialog-content class="mat-typography">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Student</mat-label>
+      <mat-select [(value)]="selectedStudent" formControlName="studentId">
+        <mat-option *ngFor="let student of students" [value]="student.id">{{ student.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Extracurricular</mat-label>
+      <mat-select [(value)]="selectedExtracurricular" formControlName="extracurricularId">
+        <mat-option *ngFor="let extracurricular of extracurriculars"
+                    [value]="extracurricular.id">{{ extracurricular.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" placeholder="Description"/>
+    </mat-form-field>
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button color="accent" mat-dialog-close>Cancel</button>
+    <button
+      mat-button
+      color="primary"
+      [mat-dialog-close]="true"
+      cdkFocusInitial
+      type="submit"
+    >
+      Submit
+    </button>
+  </mat-dialog-actions>
+</form>

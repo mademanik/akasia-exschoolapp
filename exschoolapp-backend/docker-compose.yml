@@ -1,0 +1,216 @@
+---
+version: '3.7'
+services:
+
+  ## mysql-studentdb
+  mysql-studentdb:
+    container_name: mysql-studentdb
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: studentdb
+    restart: always
+    networks:
+      - exschoolapp
+
+  ## mysql-studentdb
+  mysql-notificationdb:
+    container_name: mysql-notificationdb
+    image: mysql:latest
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: notificationdb
+    restart: always
+    networks:
+      - exschoolapp
+
+  zookeeper-exschoolapp:
+    container_name: zookeeper-exschoolapp
+    image: confluentinc/cp-zookeeper:7.0.1
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - exschoolapp
+
+  kafka-exschoolapp:
+    container_name: kafka-exschoolapp
+    image: confluentinc/cp-kafka:7.0.1
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper-exschoolapp
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper-exschoolapp:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka-exschoolapp:29092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+    networks:
+      - exschoolapp
+
+  ## postgres-extracurriculardb
+  postgres-extracurriculardb:
+    container_name: postgres-extracurriculardb
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: extracurriculardb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    restart: always
+    networks:
+      - exschoolapp
+
+  ## postgres-registrationdb
+  postgres-registrationdb:
+    container_name: postgres-registrationdb
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: registrationdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /data/postgres
+    restart: always
+    networks:
+      - exschoolapp
+
+  ## discovery-service
+  discovery-service:
+    container_name: discovery-service
+    build:
+      context: ./discovery-service
+      dockerfile: Dockerfile
+    ports:
+      - "8761:8761"
+    restart: always
+    networks:
+      - exschoolapp
+
+  ## gateway-service
+  gateway-service:
+    container_name: gateway-service
+    build:
+      context: ./gateway-service
+      dockerfile: Dockerfile
+    ports:
+      - "9090:9090"
+    restart: always
+    networks:
+      - exschoolapp
+    depends_on:
+      - discovery-service
+    environment:
+      SPRING_APPLICATION_JSON: '{
+              "eureka.client.serviceUrl.defaultZone"  : "http://discovery-service:8761/eureka"
+            }'
+
+  ## student-service
+  student-service:
+    container_name: student-service
+    build:
+      context: ./student-service
+      dockerfile: Dockerfile
+    ports:
+      - "9091:9091"
+    restart: always
+    networks:
+      - exschoolapp
+    depends_on:
+      - mysql-studentdb
+      - discovery-service
+    environment:
+      SPRING_APPLICATION_JSON: '{
+              "spring.datasource.url"  : "jdbc:mysql://mysql-studentdb:3306/studentdb",
+              "spring.datasource.username"  : "root",
+              "spring.datasource.password"  : "root",
+              "eureka.client.serviceUrl.defaultZone"  : "http://discovery-service:8761/eureka"
+            }'
+
+  ## extracurricular-service
+  extracurricular-service:
+    container_name: extracurricular-service
+    build:
+      context: ./extracurricular-service
+      dockerfile: Dockerfile
+    ports:
+      - "9095:9095"
+    restart: always
+    networks:
+      - exschoolapp
+    depends_on:
+      - postgres-extracurriculardb
+      - discovery-service
+    environment:
+      SPRING_APPLICATION_JSON: '{
+              "spring.datasource.url"  : "jdbc:postgresql://postgres-extracurriculardb:5432/extracurriculardb",
+              "spring.datasource.username"  : "postgres",
+              "spring.datasource.password"  : "postgres",
+              "eureka.client.serviceUrl.defaultZone"  : "http://discovery-service:8761/eureka"
+            }'
+
+  ## registration-service
+  registration-service:
+    container_name: registration-service
+    build:
+      context: ./registration-service
+      dockerfile: Dockerfile
+    ports:
+      - "9093:9093"
+    restart: always
+    networks:
+      - exschoolapp
+    depends_on:
+      - postgres-registrationdb
+      - discovery-service
+      - kafka-exschoolapp
+    environment:
+      SPRING_APPLICATION_JSON: '{
+              "spring.datasource.url"  : "jdbc:postgresql://postgres-registrationdb:5432/registrationdb",
+              "spring.datasource.username"  : "postgres",
+              "spring.datasource.password"  : "postgres",
+              "eureka.client.serviceUrl.defaultZone"  : "http://discovery-service:8761/eureka",
+              "spring.kafka.bootstrap-servers"  : "kafka-exschoolapp:29092",
+              "app.student.api-url"  : "http://gateway-service:9090/api/students",
+              "app.extracurricular.api-url"  : "http://gateway-service:9090/api/extracurriculars"
+            }'
+
+  ## notification-service
+  notification-service:
+    container_name: notification-service
+    build:
+      context: ./notification-service
+      dockerfile: Dockerfile
+    ports:
+      - "9094:9094"
+    restart: always
+    networks:
+      - exschoolapp
+    depends_on:
+      - mysql-notificationdb
+      - discovery-service
+      - kafka-exschoolapp
+    environment:
+      SPRING_APPLICATION_JSON: '{
+              "spring.datasource.url"  : "jdbc:mysql://mysql-notificationdb:3306/notificationdb",
+              "spring.datasource.username"  : "root",
+              "spring.datasource.password"  : "root",
+              "eureka.client.serviceUrl.defaultZone"  : "http://discovery-service:8761/eureka",
+              "spring.kafka.bootstrap-servers"  : "kafka-exschoolapp:29092"
+            }'
+
+networks:
+  exschoolapp:
+    driver: bridge

@@ -1,0 +1,98 @@
+<section id="content">
+  <main>
+    <div class="head-title">
+      <div class="left">
+        <h1>Students</h1>
+        <ul class="breadcrumb">
+          <li>
+            <a href="#">Admin</a>
+          </li>
+          <li><i class='bx bxs-chevron-right'></i></li>
+          <li><a routerLink="/students" class="active">students</a></li>
+        </ul>
+      </div>
+      <button
+        class="btn-add mat-elevation-z8"
+        mat-raised-button
+        (click)="addDialog()"
+      >
+        <i class="bx bx-plus-circle"></i>
+        <span class="text">Add Student</span>
+      </button>
+    </div>
+    <div class="head-table">
+      <mat-card>
+        <mat-card-content>
+          <h3 class="card-title">Student List</h3>
+          <mat-form-field>
+            <mat-label>Search Student...</mat-label>
+            <input
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder="Ex. Manik"
+              #input
+            />
+          </mat-form-field>
+          <div class="table-container mat-elevation-z0">
+            <table mat-table [dataSource]="dataSource" matSort>
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.name }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+                <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="dateOfBirth">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Of Birth</th>
+                <td mat-cell *matCellDef="let element">{{ element.dateOfBirth }}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="gender">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.gender }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="address">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.address }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="phoneNumber">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone Number</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.phoneNumber }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="grade">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Grade</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.grade }}
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+
+            <mat-paginator
+              [pageSizeOptions]="[5, 10, 20]"
+              showFirstLastButtons
+              aria-label="Select page of periodic elements"
+            >
+            </mat-paginator>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </main>
+</section>

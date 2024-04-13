@@ -1,0 +1,819 @@
+{
+	"info": {
+		"_postman_id": "9ae3af79-bab5-4b9c-a824-3887ea87f071",
+		"name": "exschoolapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29669138",
+		"_collection_link": "https://mademanik-manganfoods.postman.co/workspace/My-Workspace~517561cc-1bc7-4d2a-83fe-793c5cbb8dfd/collection/29669138-9ae3af79-bab5-4b9c-a824-3887ea87f071?action=share&source=collection_link&creator=29669138"
+	},
+	"item": [
+		{
+			"name": "student",
+			"item": [
+				{
+					"name": "createStudent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Made Manik\",\r\n    \"email\" : \"blimanikyasa@gmail.com\",\r\n    \"dateOfBirth\" : \"1994-09-26\",\r\n    \"gender\" : \"MALE\",\r\n    \"address\" : \"Depok, Jawa barat\",\r\n    \"phoneNumber\" : \"083834595233\",\r\n    \"grade\" : \"GRADE_6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createStudent2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Iliana Ishita\",\r\n    \"email\" : \"ishita@gmail.com\",\r\n    \"dateOfBirth\" : \"2019-05-12\",\r\n    \"gender\" : \"FEMALE\",\r\n    \"address\" : \"Depok, Jawa barat\",\r\n    \"phoneNumber\" : \"083834595244\",\r\n    \"grade\" : \"GRADE_1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createStudent3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "John Doe",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "johndoe@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "dateOfBirth",
+									"value": "1994-09-26",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "MALE",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Depok, Jawa barat",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "083834595244",
+									"type": "text"
+								},
+								{
+									"key": "grade",
+									"value": "GRADE_1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllStudents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllStudentsContainName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/students?name=made",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"students"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "made"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findStudentById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/students/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"students",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateStudentById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Made Manik 99\",\r\n    \"email\" : \"manik.yasa99@gmail.com\",\r\n    \"dateOfBirth\" : \"1994-09-09\",\r\n    \"gender\" : \"MALE\",\r\n    \"address\" : \"Sudirman, Jaksel\",\r\n    \"phoneNumber\" : \"083834595299\",\r\n    \"grade\" : \"GRADE_5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/students/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"students",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteStudentById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/students/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"students",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "extracurricular",
+			"item": [
+				{
+					"name": "mentor-createMentor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Maharani Putri\",\r\n    \"email\" : \"maharani.putri@gmail.com\",\r\n    \"gender\" : \"FEMALE\",\r\n    \"address\" : \"Depok, Jawa barat\",\r\n    \"phoneNumber\" : \"083834595244\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/mentors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"mentors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mentor-createMentor2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Kanaya Kharisma Yasa\",\r\n    \"email\" : \"kanaya.kharisma@gmail.com\",\r\n    \"gender\" : \"FEMALE\",\r\n    \"address\" : \"Depok, Jawa barat\",\r\n    \"phoneNumber\" : \"083834595255\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/mentors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"mentors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mentor-findAllMentors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/mentors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"mentors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mentor-findAllMentorsContainName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/mentors?name=Maharani",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"mentors"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Maharani"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mentor-findMentorById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/mentors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"mentors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mentor-updateMentorById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Maharani Putri 99\",\r\n    \"email\" : \"maharani.putri99@gmail.com\",\r\n    \"gender\" : \"FEMALE\",\r\n    \"address\" : \"Blimbingsari, Banyuwangi\",\r\n    \"phoneNumber\" : \"083834595299\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/mentors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"mentors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "mentor-deleteMentorById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/mentors/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"mentors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "extracur-createExtracurricular",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Basket\",\r\n    \"startDate\" : \"2024-04-20T15:23:45.123\",\r\n    \"endDate\" : \"2025-04-10T15:23:45.123\",\r\n    \"registrationStartDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"registrationEndDate\" : \"2024-06-10T15:23:45.123\",\r\n    \"grade\" : \"GRADE_6\",\r\n    \"location\" : \"School\",\r\n    \"description\" : \"Exskull basket\",\r\n    \"quota\" : 100,\r\n    \"mentorId\" : 1  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/extracurriculars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"extracurriculars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "extracur-createExtracurricular2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"English Club\",\r\n    \"startDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"endDate\" : \"2025-04-30T15:23:45.123\",\r\n    \"registrationStartDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"registrationEndDate\" : \"2024-06-26T15:23:45.123\",\r\n    \"grade\" : \"GRADE_2\",\r\n    \"location\" : \"School English Club\",\r\n    \"description\" : \"Come and join us on School English Club\",\r\n    \"quota\" : 100,\r\n    \"mentorId\" : 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/extracurriculars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"extracurriculars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "extracur-findAllExtracurriculars",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/extracurriculars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"extracurriculars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "extracur-findAllExtracurricularsContainName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/extracurriculars?name=Basket",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"extracurriculars"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Basket"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "extracur-findExtracurricularById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/extracurriculars/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"extracurriculars",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "extracur-updateExtracurricularfindById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"Basket 99\",\r\n    \"startDate\" : \"2024-04-21T15:23:45.123\",\r\n    \"endDate\" : \"2025-04-21T15:23:45.123\",\r\n    \"registrationStartDate\" : \"2024-04-10T15:23:45.123\",\r\n    \"registrationEndDate\" : \"2024-04-11T15:23:45.123\",\r\n    \"grade\" : \"GRADE_5\",\r\n    \"location\" : \"School Basket Court\",\r\n    \"description\" : \"Exskull basket Akasia\",\r\n    \"quota\" : 100,\r\n    \"mentorId\" : 2  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/extracurriculars/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"extracurriculars",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "extracur-updateExtracurricularfindById2",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"English Club\",\r\n    \"startDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"endDate\" : \"2025-04-30T15:23:45.123\",\r\n    \"registrationStartDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"registrationEndDate\" : \"2024-04-26T15:23:45.123\",\r\n    \"grade\" : \"GRADE_2\",\r\n    \"location\" : \"School English Club\",\r\n    \"description\" : \"Come and join us on School English Club\",\r\n    \"quota\" : 50,\r\n    \"mentorId\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/extracurriculars/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"extracurriculars",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "extracur-deleteExtracurricularById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/extracurriculars/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"extracurriculars",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "registration",
+			"item": [
+				{
+					"name": "createRegistration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\" : 1,\r\n    \"extracurricularId\" : 1,\r\n    \"description\" : \"Saya sangat suka basket\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9093/api/registrations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9093",
+							"path": [
+								"api",
+								"registrations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createRegistration2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\" : 2,\r\n    \"extracurricularId\" : 2,\r\n    \"description\" : \"I love english club\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/registrations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"registrations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findAllRegistration",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9093/api/registrations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9093",
+							"path": [
+								"api",
+								"registrations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findRegistrationById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/registrations/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"registrations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateRegistrationById",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\" : 1,\r\n    \"extracurricularId\" : 2,\r\n    \"description\" : \"Saya ganti ke Exskull English Club\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/api/registrations/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"registrations",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteRegistrationById",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/registrations/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"registrations",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notification",
+			"item": [
+				{
+					"name": "findAllNotification",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/api/notifications",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"api",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,81 @@
+<mat-toolbar>
+  <button
+    class="sidebar-toggle"
+    type="button"
+    aria-label="Toggle sidebar"
+    mat-icon-button
+    (click)="sidenavToggle()"
+  >
+    <div *ngIf="this.isMobile">
+      <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+      <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+    </div>
+
+    <div *ngIf="!this.isMobile">
+      <mat-icon>menu</mat-icon>
+    </div>
+  </button>
+
+  <!--  <app-notif (sendEventToParent)="getNotifEvent($event)"></app-notif>-->
+  <app-profile></app-profile>
+</mat-toolbar>
+
+<mat-sidenav-container id="sidenav">
+  <mat-sidenav mode="side" #sidenav>
+    <img
+      class="avatar mat-elevation-z8"
+      src="../../../assets/avatar/avatar.jpeg"
+    />
+
+    <h4 class="name">Made Manik</h4>
+    <p class="designation">Java Developer</p>
+
+    <mat-divider></mat-divider>
+    <a
+      mat-button
+      class="menu-button"
+      [ngClass]="activeMenu === 'students' ? 'active' : ''"
+      routerLink="/students"
+      (click)="setMenuActive('students')"
+    >
+      <mat-icon>person</mat-icon>
+      <span class="btn-text">Students</span>
+    </a>
+    <a
+      mat-button
+      class="menu-button"
+      [ngClass]="activeMenu === 'mentors' ? 'active' : ''"
+      routerLink="/mentors"
+      (click)="setMenuActive('mentors')"
+    >
+      <mat-icon>supervised_user_circle</mat-icon>
+      <span class="btn-text">Mentors</span>
+    </a>
+    <a
+      mat-button
+      class="menu-button"
+      [ngClass]="activeMenu === 'extracurriculars' ? 'active' : ''"
+      routerLink="/extracurriculars"
+      (click)="setMenuActive('extracurriculars')"
+    >
+      <mat-icon>school</mat-icon>
+      <span class="btn-text">Excurriculars</span>
+    </a>
+    <a
+      mat-button
+      class="menu-button"
+      [ngClass]="activeMenu === 'registrations' ? 'active' : ''"
+      routerLink="/registrations"
+      (click)="setMenuActive('registrations')"
+    >
+      <mat-icon>computer</mat-icon>
+      <span class="btn-text">Registrations</span>
+    </a>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z4">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
