@@ -4,7 +4,7 @@
 ### Overview
 
 1. Project Architecture
-![architecture](https://i.postimg.cc/Hs207SKb/microservices-akasia-exschool.png)
+![architecture](https://i.postimg.cc/HxkKMcWt/microservices-akasia-exschool.png)
 
 2. Angular Client
 ![admin](https://i.postimg.cc/SNhFKsFJ/angular-client.png)
