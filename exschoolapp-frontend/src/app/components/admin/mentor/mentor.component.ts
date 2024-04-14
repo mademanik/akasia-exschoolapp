@@ -7,6 +7,9 @@ import {MatSort} from '@angular/material/sort';
 import {Mentor} from 'src/app/models/mentor.model';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {AddMentorComponent} from "./add-mentor/add-mentor.component";
+import {ShowMentorComponent} from "./show-mentor/show-mentor.component";
+import {EditMentorComponent} from "./edit-mentor/edit-mentor.component";
+import {DeleteMentorComponent} from "./delete-mentor/delete-mentor.component";
 
 @Component({
   selector: 'app-mentor',
@@ -105,13 +108,59 @@ export class MentorComponent implements AfterViewInit, OnInit {
   }
 
   showDialog(id: String) {
+    const dialogRef = this.dialog.open(ShowMentorComponent, {
+      width: '50%',
+      position: {top: '20px'},
+      data: {id: id},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      setTimeout(() => {
+        this.findAllMentors();
+      }, 500);
+    });
   }
 
   editDialog(id: String) {
+    const dialogRef = this.dialog.open(EditMentorComponent, {
+      width: '50%',
+      position: {top: '20px'},
+      data: {id: id},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      setTimeout(() => {
+        this.findAllMentors();
+      }, 500);
+
+      this.resultSnackBar(result, 'update');
+    });
   }
 
   deleteDialog(id: String) {
+    const dialogRef = this.dialog.open(DeleteMentorComponent, {
+      width: '20%',
+      position: {top: '20px'},
+      data: {id: id},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      setTimeout(() => {
+        this.findAllMentors();
+      }, 500);
+
+      this.resultSnackBar(result, 'delete');
+    });
   }
 
+  resultSnackBar(result: any, type: string) {
+    if (result?.message == 'success') {
+      this.openSnackbarSuccess('Success', `Data ${type} successfully`);
+    } else if (result?.message == 'error') {
+      this.openSnackbarError('Error', `Data ${type} Failed`);
+    } else if (result?.message == 'invalid') {
+      this.openSnackbarError('Error', `Form ${type} invalid`);
+    }
+  }
 }
 

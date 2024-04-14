@@ -1,0 +1,116 @@
+<h2 mat-dialog-title>Show Registration</h2>
+<mat-dialog-content class="mat-typography" *ngIf="row">
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Student Name</mat-label>
+    <input
+      matInput
+      placeholder="Student Name"
+      value="{{ row.student.name }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Student Email</mat-label>
+    <input
+      matInput
+      placeholder="Student Email"
+      value="{{ row.student.email }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Student Grade</mat-label>
+    <input
+      matInput
+      placeholder="Student Grade"
+      value="{{ row.student.grade }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Extracurricular Name</mat-label>
+    <input
+      matInput
+      placeholder="Extracurricular Name"
+      value="{{ row.extracurricular.name }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Extracurricular Start Date</mat-label>
+    <input
+      matInput
+      placeholder="Extracurricular Start Date"
+      value="{{ convertDate(row.extracurricular.startDate) }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Extracurricular End Date</mat-label>
+    <input
+      matInput
+      placeholder="Extracurricular End Date"
+      value="{{ convertDate(row.extracurricular.endDate) }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Extracurricular Registration Start Date</mat-label>
+    <input
+      matInput
+      placeholder="Extracurricular Registration Start Date"
+      value="{{ convertDate(row.extracurricular.registrationStartDate) }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Extracurricular Registration End Date</mat-label>
+    <input
+      matInput
+      placeholder="Extracurricular Registration End Date"
+      value="{{ convertDate(row.extracurricular.registrationEndDate) }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Extracurricular Location</mat-label>
+    <input
+      matInput
+      placeholder="Extracurricular Location"
+      value="{{ row.extracurricular.location }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Extracurricular Mentor Name</mat-label>
+    <input
+      matInput
+      placeholder="Extracurricular Mentor Name"
+      value="{{ row.extracurricular.mentor.name }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Registration Description</mat-label>
+    <input
+      matInput
+      placeholder="Registration Description"
+      value="{{ row.description }}"
+      readonly
+    />
+  </mat-form-field>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button color="accent" mat-dialog-close>Close</button>
+</mat-dialog-actions>

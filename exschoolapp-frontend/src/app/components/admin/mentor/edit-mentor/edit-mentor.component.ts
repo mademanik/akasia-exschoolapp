@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {StudentService} from 'src/app/services/student.service';
+import {MentorService} from 'src/app/services/mentor.service';
 import {
   FormBuilder,
   FormGroup,
@@ -12,63 +12,47 @@ export enum Gender {
   FEMALE = 'FEMALE',
 }
 
-export enum Grade {
-  GRADE_1 = 'GRADE_1',
-  GRADE_2 = 'GRADE_2',
-  GRADE_3 = 'GRADE_3',
-  GRADE_4 = 'GRADE_4',
-  GRADE_5 = 'GRADE_5',
-  GRADE_6 = 'GRADE_6',
-}
-
 @Component({
-  selector: 'app-edit-student',
-  templateUrl: './edit-student.component.html',
-  styleUrls: ['./edit-student.component.scss']
+  selector: 'app-edit-mentor',
+  templateUrl: './edit-mentor.component.html',
+  styleUrls: ['./edit-mentor.component.scss']
 })
-export class EditStudentComponent implements OnInit {
-  studentForm: FormGroup = this.formBuilder.group({
+export class EditMentorComponent implements OnInit {
+  mentorForm: FormGroup = this.formBuilder.group({
     id: ['', Validators.required],
     name: ['', Validators.required],
     email: ['', Validators.required],
-    dateOfBirth: ['', Validators.required],
     gender: ['', Validators.required],
     address: ['', Validators.required],
     phoneNumber: ['', Validators.required],
-    grade: ['', Validators.required],
   });
 
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: { id: any },
     private formBuilder: FormBuilder,
-    private studentService: StudentService,
-    private dialogRef: MatDialogRef<EditStudentComponent>
+    private mentorService: MentorService,
+    private dialogRef: MatDialogRef<EditMentorComponent>
   ) {
   }
 
   genders = Object.values(Gender);
   selectedGender?: Gender;
 
-  grades = Object.values(Grade);
-  selectedGrade?: Grade;
-
   ngOnInit(): void {
-    this.getStudentById(this.data.id);
+    this.findMentorById(this.data.id);
   }
 
-  getStudentById(id: String) {
-    this.studentService.findStudentById(id).subscribe({
+  findMentorById(id: String) {
+    this.mentorService.findMentorById(id).subscribe({
       next: (res) => {
-        this.studentForm.setValue({
+        this.mentorForm.setValue({
           id: res.data!.id,
           name: res.data!.name,
           email: res.data!.email,
-          dateOfBirth: res.data!.dateOfBirth,
           gender: res.data!.gender,
           address: res.data!.address,
           phoneNumber: res.data!.phoneNumber,
-          grade: res.data!.grade,
         });
       },
       error: (err) => {
@@ -78,12 +62,12 @@ export class EditStudentComponent implements OnInit {
   }
 
   submit(): void {
-    if (this.studentForm.valid) {
+    if (this.mentorForm.valid) {
 
-      const id = this.studentForm.get('id')?.value;
-      const jsonData = this.studentForm.value;
+      const id = this.mentorForm.get('id')?.value;
+      const jsonData = this.mentorForm.value;
 
-      this.studentService.updateStudent(id, jsonData).subscribe({
+      this.mentorService.updateMentor(id, jsonData).subscribe({
         next: (res) => {
           this.dialogRef.close({
             message: 'success',

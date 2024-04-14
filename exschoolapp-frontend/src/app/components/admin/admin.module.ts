@@ -40,6 +40,15 @@ import { AddRegistrationComponent } from './registration/add-registration/add-re
 import { ShowStudentComponent } from './student/show-student/show-student.component';
 import { EditStudentComponent } from './student/edit-student/edit-student.component';
 import { DeleteStudentComponent } from './student/delete-student/delete-student.component';
+import { ShowMentorComponent } from './mentor/show-mentor/show-mentor.component';
+import { EditMentorComponent } from './mentor/edit-mentor/edit-mentor.component';
+import { DeleteMentorComponent } from './mentor/delete-mentor/delete-mentor.component';
+import { ShowExtracurricularComponent } from './extracurricular/show-extracurricular/show-extracurricular.component';
+import { EditExtracurricularComponent } from './extracurricular/edit-extracurricular/edit-extracurricular.component';
+import { DeleteExtracurricularComponent } from './extracurricular/delete-extracurricular/delete-extracurricular.component';
+import { ShowRegistrationComponent } from './registration/show-registration/show-registration.component';
+import { EditRegistrationComponent } from './registration/edit-registration/edit-registration.component';
+import { DeleteRegistrationComponent } from './registration/delete-registration/delete-registration.component';
 
 const routes: Routes = [
   {
@@ -69,7 +78,16 @@ const routes: Routes = [
     AddRegistrationComponent,
     ShowStudentComponent,
     EditStudentComponent,
-    DeleteStudentComponent
+    DeleteStudentComponent,
+    ShowMentorComponent,
+    EditMentorComponent,
+    DeleteMentorComponent,
+    ShowExtracurricularComponent,
+    EditExtracurricularComponent,
+    DeleteExtracurricularComponent,
+    ShowRegistrationComponent,
+    EditRegistrationComponent,
+    DeleteRegistrationComponent
   ],
   imports: [
     CommonModule,

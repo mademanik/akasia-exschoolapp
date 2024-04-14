@@ -8,6 +8,9 @@ import {Registration} from 'src/app/models/registration.model';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {AddRegistrationComponent} from "./add-registration/add-registration.component";
 import {DatePipe} from "@angular/common";
+import {ShowRegistrationComponent} from "./show-registration/show-registration.component";
+import {EditRegistrationComponent} from "./edit-registration/edit-registration.component";
+import {DeleteRegistrationComponent} from "./delete-registration/delete-registration.component";
 
 @Component({
   selector: 'app-registration',
@@ -76,7 +79,7 @@ export class RegistrationComponent implements AfterViewInit, OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       setTimeout(() => {
         this.findAllRegistrations();
-      }, 500);
+      }, 1000);
 
       if (result?.message == 'success') {
         this.openSnackbarSuccess('Success', 'Data successfully created');
@@ -114,12 +117,59 @@ export class RegistrationComponent implements AfterViewInit, OnInit {
   }
 
   showDialog(id: String) {
+    const dialogRef = this.dialog.open(ShowRegistrationComponent, {
+      width: '50%',
+      position: {top: '20px'},
+      data: {id: id},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      setTimeout(() => {
+        this.findAllRegistrations();
+      }, 500);
+    });
   }
 
   editDialog(id: String) {
+    const dialogRef = this.dialog.open(EditRegistrationComponent, {
+      width: '50%',
+      position: {top: '20px'},
+      data: {id: id},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      setTimeout(() => {
+        this.findAllRegistrations();
+      }, 1000);
+
+      this.resultSnackBar(result, 'update');
+    });
   }
 
   deleteDialog(id: String) {
+    const dialogRef = this.dialog.open(DeleteRegistrationComponent, {
+      width: '20%',
+      position: {top: '20px'},
+      data: {id: id},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      setTimeout(() => {
+        this.findAllRegistrations();
+      }, 500);
+
+      this.resultSnackBar(result, 'delete');
+    });
+  }
+
+  resultSnackBar(result: any, type: string) {
+    if (result?.message == 'success') {
+      this.openSnackbarSuccess('Success', `Data ${type} successfully`);
+    } else if (result?.message == 'error') {
+      this.openSnackbarError('Error', `Data ${type} Failed`);
+    } else if (result?.message == 'invalid') {
+      this.openSnackbarError('Error', `Form ${type} invalid`);
+    }
   }
 
 }

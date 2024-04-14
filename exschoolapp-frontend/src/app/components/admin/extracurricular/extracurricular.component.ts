@@ -8,6 +8,9 @@ import {Extracurricular} from 'src/app/models/extracurricular.model';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {AddExtracurricularComponent} from "./add-extracurricular/add-extracurricular.component";
 import {DatePipe} from "@angular/common";
+import {ShowExtracurricularComponent} from "./show-extracurricular/show-extracurricular.component";
+import {EditExtracurricularComponent} from "./edit-extracurricular/edit-extracurricular.component";
+import {DeleteExtracurricularComponent} from "./delete-extracurricular/delete-extracurricular.component";
 
 @Component({
   selector: 'app-extracurricular',
@@ -114,12 +117,59 @@ export class ExtracurricularComponent implements AfterViewInit, OnInit {
   }
 
   showDialog(id: String) {
+    const dialogRef = this.dialog.open(ShowExtracurricularComponent, {
+      width: '50%',
+      position: {top: '20px'},
+      data: {id: id},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      setTimeout(() => {
+        this.findAllExtracurriculars();
+      }, 500);
+    });
   }
 
   editDialog(id: String) {
+    const dialogRef = this.dialog.open(EditExtracurricularComponent, {
+      width: '50%',
+      position: {top: '20px'},
+      data: {id: id},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      setTimeout(() => {
+        this.findAllExtracurriculars();
+      }, 500);
+
+      this.resultSnackBar(result, 'update');
+    });
   }
 
   deleteDialog(id: String) {
+    const dialogRef = this.dialog.open(DeleteExtracurricularComponent, {
+      width: '20%',
+      position: {top: '20px'},
+      data: {id: id},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      setTimeout(() => {
+        this.findAllExtracurriculars();
+      }, 500);
+
+      this.resultSnackBar(result, 'delete');
+    });
+  }
+
+  resultSnackBar(result: any, type: string) {
+    if (result?.message == 'success') {
+      this.openSnackbarSuccess('Success', `Data ${type} successfully`);
+    } else if (result?.message == 'error') {
+      this.openSnackbarError('Error', `Data ${type} Failed`);
+    } else if (result?.message == 'invalid') {
+      this.openSnackbarError('Error', `Form ${type} invalid`);
+    }
   }
 
 }

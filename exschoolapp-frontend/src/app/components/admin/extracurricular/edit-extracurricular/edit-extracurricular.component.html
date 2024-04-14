@@ -1,6 +1,11 @@
 <form [formGroup]="extracurricularForm" (ngSubmit)="submit()">
-  <h2 mat-dialog-title>Add Extracurricular</h2>
+  <h2 mat-dialog-title>Edit Extracurricular</h2>
   <mat-dialog-content class="mat-typography">
+    <mat-form-field class="invisible form-first" appearance="outline">
+      <mat-label>Id</mat-label>
+      <input matInput formControlName="id" placeholder="Mentor Id" readonly/>
+    </mat-form-field>
+
     <mat-form-field class="form-first" appearance="outline">
       <mat-label>Name</mat-label>
       <input matInput formControlName="name" placeholder="Name"/>
@@ -68,7 +73,7 @@
       cdkFocusInitial
       type="submit"
     >
-      Submit
+      Update
     </button>
   </mat-dialog-actions>
 </form>
