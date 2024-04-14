@@ -11,12 +11,12 @@
 2. Check node version
    ```
    node -v
-   v20.12.2
+   v18.10.0
    ```
 3. Check npm version
    ```
    npm -v
-   10.5.0
+   8.19.2
    ```
 4. Check docker version
    ```
