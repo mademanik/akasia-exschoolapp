@@ -71,6 +71,16 @@
       <mat-icon>computer</mat-icon>
       <span class="btn-text">Registrations</span>
     </a>
+    <a
+      mat-button
+      class="menu-button"
+      [ngClass]="activeMenu === 'notifications' ? 'active' : ''"
+      routerLink="/notifications"
+      (click)="setMenuActive('notifications')"
+    >
+      <mat-icon>email</mat-icon>
+      <span class="btn-text">Notifications</span>
+    </a>
   </mat-sidenav>
 
   <mat-sidenav-content>

@@ -1,0 +1,63 @@
+<section id="content">
+  <main>
+    <div class="head-title">
+      <div class="left">
+        <h1>Notifications</h1>
+        <ul class="breadcrumb">
+          <li>
+            <a href="#">Admin</a>
+          </li>
+          <li><i class='bx bxs-chevron-right'></i></li>
+          <li><a routerLink="/notifications" class="active">notifications</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="head-table">
+      <mat-card>
+        <mat-card-content>
+          <h3 class="card-title">Notification List</h3>
+          <mat-form-field>
+            <mat-label>Search Notification...</mat-label>
+            <input
+              matInput
+              (keyup)="applyFilter($event)"
+              placeholder="Ex. Manik"
+              #input
+            />
+          </mat-form-field>
+          <div class="table-container mat-elevation-z0">
+            <table mat-table [dataSource]="dataSource" matSort>
+              <ng-container matColumnDef="toEmail">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>To Email</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.toEmail }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="createdAt">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Created At</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ convertDate(element.createdAt) }}
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="message">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Message</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.message }}
+                </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+
+            <mat-paginator
+              [pageSizeOptions]="[5, 10, 20]"
+              showFirstLastButtons
+              aria-label="Select page of periodic elements"
+            >
+            </mat-paginator>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </main>
+</section>

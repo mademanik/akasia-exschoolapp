@@ -13,7 +13,6 @@ public class ExtracurricularResponse extends BaseResponse {
     private LocalDateTime endDate;
     private LocalDateTime registrationStartDate;
     private LocalDateTime registrationEndDate;
-    private Grade grade;
     private String location;
     private String description;
     private Integer quota;

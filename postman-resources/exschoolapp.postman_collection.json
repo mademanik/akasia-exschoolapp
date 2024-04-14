@@ -434,7 +434,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"Basket\",\r\n    \"startDate\" : \"2024-04-20T15:23:45.123\",\r\n    \"endDate\" : \"2025-04-10T15:23:45.123\",\r\n    \"registrationStartDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"registrationEndDate\" : \"2024-06-10T15:23:45.123\",\r\n    \"grade\" : \"GRADE_6\",\r\n    \"location\" : \"School\",\r\n    \"description\" : \"Exskull basket\",\r\n    \"quota\" : 100,\r\n    \"mentorId\" : 1  \r\n}",
+							"raw": "{\r\n    \"name\" : \"Basket\",\r\n    \"startDate\" : \"2024-04-20T15:23:45.123\",\r\n    \"endDate\" : \"2025-04-10T15:23:45.123\",\r\n    \"registrationStartDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"registrationEndDate\" : \"2024-06-10T15:23:45.123\",\r\n    \"location\" : \"School\",\r\n    \"description\" : \"Exskull basket\",\r\n    \"quota\" : 100,\r\n    \"mentorId\" : 1  \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -463,7 +463,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"English Club\",\r\n    \"startDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"endDate\" : \"2025-04-30T15:23:45.123\",\r\n    \"registrationStartDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"registrationEndDate\" : \"2024-06-26T15:23:45.123\",\r\n    \"grade\" : \"GRADE_2\",\r\n    \"location\" : \"School English Club\",\r\n    \"description\" : \"Come and join us on School English Club\",\r\n    \"quota\" : 100,\r\n    \"mentorId\" : 2\r\n}",
+							"raw": "{\r\n    \"name\" : \"English Club\",\r\n    \"startDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"endDate\" : \"2025-04-30T15:23:45.123\",\r\n    \"registrationStartDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"registrationEndDate\" : \"2024-06-26T15:23:45.123\",\r\n    \"location\" : \"School English Club\",\r\n    \"description\" : \"Come and join us on School English Club\",\r\n    \"quota\" : 100,\r\n    \"mentorId\" : 2\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -559,7 +559,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"Basket 99\",\r\n    \"startDate\" : \"2024-04-21T15:23:45.123\",\r\n    \"endDate\" : \"2025-04-21T15:23:45.123\",\r\n    \"registrationStartDate\" : \"2024-04-10T15:23:45.123\",\r\n    \"registrationEndDate\" : \"2024-04-11T15:23:45.123\",\r\n    \"grade\" : \"GRADE_5\",\r\n    \"location\" : \"School Basket Court\",\r\n    \"description\" : \"Exskull basket Akasia\",\r\n    \"quota\" : 100,\r\n    \"mentorId\" : 2  \r\n}",
+							"raw": "{\r\n    \"name\" : \"Basket 99\",\r\n    \"startDate\" : \"2024-04-21T15:23:45.123\",\r\n    \"endDate\" : \"2025-04-21T15:23:45.123\",\r\n    \"registrationStartDate\" : \"2024-04-10T15:23:45.123\",\r\n    \"registrationEndDate\" : \"2024-04-11T15:23:45.123\",\r\n    \"location\" : \"School Basket Court\",\r\n    \"description\" : \"Exskull basket Akasia\",\r\n    \"quota\" : 100,\r\n    \"mentorId\" : 2  \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -589,7 +589,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\" : \"English Club\",\r\n    \"startDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"endDate\" : \"2025-04-30T15:23:45.123\",\r\n    \"registrationStartDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"registrationEndDate\" : \"2024-04-26T15:23:45.123\",\r\n    \"grade\" : \"GRADE_2\",\r\n    \"location\" : \"School English Club\",\r\n    \"description\" : \"Come and join us on School English Club\",\r\n    \"quota\" : 50,\r\n    \"mentorId\" : 1\r\n}",
+							"raw": "{\r\n    \"name\" : \"English Club\",\r\n    \"startDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"endDate\" : \"2025-04-30T15:23:45.123\",\r\n    \"registrationStartDate\" : \"2024-04-09T15:23:45.123\",\r\n    \"registrationEndDate\" : \"2024-04-26T15:23:45.123\",\r\n    \"location\" : \"School English Club\",\r\n    \"description\" : \"Come and join us on School English Club\",\r\n    \"quota\" : 50,\r\n    \"mentorId\" : 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

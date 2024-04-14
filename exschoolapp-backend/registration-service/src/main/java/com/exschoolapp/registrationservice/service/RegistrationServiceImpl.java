@@ -138,6 +138,9 @@ public class RegistrationServiceImpl implements RegistrationService {
         RegistrationResponse registrationResponse = registrationMapper.mapToRegistrationResponse(registration);
         registrationResponse.setStudent(studentResponse);
         registrationResponse.setExtracurricular(extracurricularResponse);
+
+        //send kafka request
+        this.sendKafkaRequest(studentResponse, extracurricularResponse);
         return registrationResponse;
     }
 
