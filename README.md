@@ -1,6 +1,14 @@
 # akasia-exschoolapp
 ## Akasia School Extracurricular App
 
+### Overview
+
+1. Project Architecture
+![architecture](https://i.postimg.cc/Hs207SKb/microservices-akasia-exschool.png)
+
+2. Angular Client
+![admin](https://i.postimg.cc/SNhFKsFJ/angular-client.png)
+
 ### Prerequisite
 
 1. Check ng version

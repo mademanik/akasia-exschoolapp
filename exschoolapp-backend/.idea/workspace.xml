@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebca8240-f71c-4e04-a98e-db398e660473" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration-service/src/main/java/com/exschoolapp/registrationservice/dto/ExtracurricularResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration-service/src/main/java/com/exschoolapp/registrationservice/dto/ExtracurricularResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registration-service/src/main/java/com/exschoolapp/registrationservice/service/RegistrationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/registration-service/src/main/java/com/exschoolapp/registrationservice/service/RegistrationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../exschoolapp-frontend/src/app/components/admin/admin.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../exschoolapp-frontend/src/app/components/admin/admin.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../exschoolapp-frontend/src/app/components/admin/admin.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../exschoolapp-frontend/src/app/components/admin/admin.module.ts" afterDir="false" />
-    </list>
+    <list default="true" id="ebca8240-f71c-4e04-a98e-db398e660473" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -145,6 +138,7 @@
       <workItem from="1713027375844" duration="440000" />
       <workItem from="1713121026237" duration="92000" />
       <workItem from="1713122492534" duration="203000" />
+      <workItem from="1713127195770" duration="121000" />
     </task>
     <servers />
   </component>
