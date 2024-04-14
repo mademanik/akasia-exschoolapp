@@ -1,0 +1,75 @@
+<h2 mat-dialog-title>Show Student</h2>
+<mat-dialog-content class="mat-typography" *ngIf="row">
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      placeholder="Name"
+      value="{{ row.name }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      placeholder="Email"
+      value="{{ row.email }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Date Of Birth</mat-label>
+    <input
+      matInput
+      placeholder="dateOfBirth"
+      value="{{ row.dateOfBirth }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Gender</mat-label>
+    <input
+      matInput
+      placeholder="gender"
+      value="{{ row.gender }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Address</mat-label>
+    <input
+      matInput
+      placeholder="address"
+      value="{{ row.address }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Phone Number</mat-label>
+    <input
+      matInput
+      placeholder="phoneNumber"
+      value="{{ row.phoneNumber }}"
+      readonly
+    />
+  </mat-form-field>
+
+  <mat-form-field class="form-first" appearance="outline">
+    <mat-label>Grade</mat-label>
+    <input
+      matInput
+      placeholder="grade"
+      value="{{ row.grade }}"
+      readonly
+    />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button color="accent" mat-dialog-close>Close</button>
+</mat-dialog-actions>

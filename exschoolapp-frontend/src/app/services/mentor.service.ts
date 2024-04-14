@@ -33,4 +33,30 @@ export class MentorService {
       `${this.baseUrl}/api/mentors`
     );
   }
+
+  findMentorById(id: any): Observable<Response<Mentor>> {
+    return this._httpClient.get<Response<Mentor>>(
+      `${this.baseUrl}/api/mentors/${id}`
+    );
+  }
+
+  deleteMentorById(id: any): Observable<Response<Mentor>> {
+    return this._httpClient.delete<Response<Mentor>>(
+      `${this.baseUrl}/api/mentors/${id}`
+    );
+  }
+
+  updateMentor(id: any, jsonData: any) {
+    const req = new HttpRequest(
+      'PUT',
+      `${this.baseUrl}/api/mentors/${id}`,
+      jsonData,
+      {
+        reportProgress: true,
+        responseType: 'json',
+      }
+    );
+
+    return this._httpClient.request(req);
+  }
 }

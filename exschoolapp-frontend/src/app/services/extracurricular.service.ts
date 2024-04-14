@@ -33,4 +33,30 @@ export class ExtracurricularService {
       `${this.baseUrl}/api/extracurriculars`
     );
   }
+
+  findExtracurricularById(id: any): Observable<Response<Extracurricular>> {
+    return this._httpClient.get<Response<Extracurricular>>(
+      `${this.baseUrl}/api/extracurriculars/${id}`
+    );
+  }
+
+  deleteExtracurricularById(id: any): Observable<Response<Extracurricular>> {
+    return this._httpClient.delete<Response<Extracurricular>>(
+      `${this.baseUrl}/api/extracurriculars/${id}`
+    );
+  }
+
+  updateExtracurricular(id: any, jsonData: any) {
+    const req = new HttpRequest(
+      'PUT',
+      `${this.baseUrl}/api/extracurriculars/${id}`,
+      jsonData,
+      {
+        reportProgress: true,
+        responseType: 'json',
+      }
+    );
+
+    return this._httpClient.request(req);
+  }
 }

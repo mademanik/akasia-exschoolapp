@@ -7,6 +7,9 @@ import {MatSort} from '@angular/material/sort';
 import {Student} from 'src/app/models/student.model';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {AddStudentComponent} from "./add-student/add-student.component";
+import {ShowStudentComponent} from "./show-student/show-student.component";
+import {EditStudentComponent} from "./edit-student/edit-student.component";
+import {DeleteStudentComponent} from "./delete-student/delete-student.component";
 
 @Component({
   selector: 'app-student',
@@ -19,9 +22,8 @@ export class StudentComponent implements AfterViewInit, OnInit {
     'email',
     'dateOfBirth',
     'gender',
-    'address',
-    'phoneNumber',
     'grade',
+    'action'
   ];
 
   dataSource = new MatTableDataSource<Student>();
@@ -103,6 +105,62 @@ export class StudentComponent implements AfterViewInit, OnInit {
       duration: 3000,
       panelClass: 'app-notification-error',
     });
+  }
+
+  showDialog(id: String) {
+    const dialogRef = this.dialog.open(ShowStudentComponent, {
+      width: '50%',
+      position: {top: '20px'},
+      data: {id: id},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      setTimeout(() => {
+        this.findAllStudents();
+      }, 500);
+    });
+  }
+
+  editDialog(id: String) {
+    const dialogRef = this.dialog.open(EditStudentComponent, {
+      width: '50%',
+      position: {top: '20px'},
+      data: {id: id},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      setTimeout(() => {
+        this.findAllStudents();
+      }, 500);
+
+      this.resultSnackBar(result, 'update');
+    });
+  }
+
+  deleteDialog(id: String) {
+    const dialogRef = this.dialog.open(DeleteStudentComponent, {
+      width: '20%',
+      position: {top: '20px'},
+      data: {id: id},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      setTimeout(() => {
+        this.findAllStudents();
+      }, 500);
+
+      this.resultSnackBar(result, 'delete');
+    });
+  }
+
+  resultSnackBar(result: any, type: string) {
+    if (result?.message == 'success') {
+      this.openSnackbarSuccess('Success', `Data ${type} successfully`);
+    } else if (result?.message == 'error') {
+      this.openSnackbarError('Error', `Data ${type} Failed`);
+    } else if (result?.message == 'invalid') {
+      this.openSnackbarError('Error', `Form ${type} invalid`);
+    }
   }
 
 }

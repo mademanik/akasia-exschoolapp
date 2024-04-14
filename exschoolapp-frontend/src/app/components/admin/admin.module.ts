@@ -37,6 +37,9 @@ import {AddStudentComponent} from './student/add-student/add-student.component';
 import { AddMentorComponent } from './mentor/add-mentor/add-mentor.component';
 import { AddExtracurricularComponent } from './extracurricular/add-extracurricular/add-extracurricular.component';
 import { AddRegistrationComponent } from './registration/add-registration/add-registration.component';
+import { ShowStudentComponent } from './student/show-student/show-student.component';
+import { EditStudentComponent } from './student/edit-student/edit-student.component';
+import { DeleteStudentComponent } from './student/delete-student/delete-student.component';
 
 const routes: Routes = [
   {
@@ -63,7 +66,10 @@ const routes: Routes = [
     AddStudentComponent,
     AddMentorComponent,
     AddExtracurricularComponent,
-    AddRegistrationComponent
+    AddRegistrationComponent,
+    ShowStudentComponent,
+    EditStudentComponent,
+    DeleteStudentComponent
   ],
   imports: [
     CommonModule,

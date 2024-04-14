@@ -20,6 +20,7 @@ export class MentorComponent implements AfterViewInit, OnInit {
     'gender',
     'address',
     'phoneNumber',
+    'action'
   ];
 
   dataSource = new MatTableDataSource<Mentor>();
@@ -101,6 +102,15 @@ export class MentorComponent implements AfterViewInit, OnInit {
       duration: 3000,
       panelClass: 'app-notification-error',
     });
+  }
+
+  showDialog(id: String) {
+  }
+
+  editDialog(id: String) {
+  }
+
+  deleteDialog(id: String) {
   }
 
 }

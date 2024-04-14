@@ -21,9 +21,8 @@ export class ExtracurricularComponent implements AfterViewInit, OnInit {
     'endDate',
     'registrationStartDate',
     'registrationEndDate',
-    'location',
-    'description',
     'quota',
+    'action'
   ];
 
   dataSource = new MatTableDataSource<Extracurricular>();
@@ -112,6 +111,15 @@ export class ExtracurricularComponent implements AfterViewInit, OnInit {
     const parsedDate = new Date(date);
 
     return this.datePipe.transform(parsedDate, 'dd-MM-yyyy HH-mm-ss') || '';
+  }
+
+  showDialog(id: String) {
+  }
+
+  editDialog(id: String) {
+  }
+
+  deleteDialog(id: String) {
   }
 
 }

@@ -18,11 +18,10 @@ export class RegistrationComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = [
     'studentName',
     'extracurricularName',
-    'mentorName',
     'startDate',
     'endDate',
     'grade',
-    'description',
+    'action'
   ];
 
   dataSource = new MatTableDataSource<Registration>();
@@ -112,6 +111,15 @@ export class RegistrationComponent implements AfterViewInit, OnInit {
     const parsedDate = new Date(date);
 
     return this.datePipe.transform(parsedDate, 'dd-MM-yyyy HH-mm-ss') || '';
+  }
+
+  showDialog(id: String) {
+  }
+
+  editDialog(id: String) {
+  }
+
+  deleteDialog(id: String) {
   }
 
 }

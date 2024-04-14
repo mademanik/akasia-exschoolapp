@@ -33,4 +33,30 @@ export class StudentService {
       `${this.baseUrl}/api/students`
     );
   }
+
+  findStudentById(id: any): Observable<Response<Student>> {
+    return this._httpClient.get<Response<Student>>(
+      `${this.baseUrl}/api/students/${id}`
+    );
+  }
+
+  deleteStudentById(id: any): Observable<Response<Student>> {
+    return this._httpClient.delete<Response<Student>>(
+      `${this.baseUrl}/api/students/${id}`
+    );
+  }
+
+  updateStudent(id: any, jsonData: any) {
+    const req = new HttpRequest(
+      'PUT',
+      `${this.baseUrl}/api/students/${id}`,
+      jsonData,
+      {
+        reportProgress: true,
+        responseType: 'json',
+      }
+    );
+
+    return this._httpClient.request(req);
+  }
 }

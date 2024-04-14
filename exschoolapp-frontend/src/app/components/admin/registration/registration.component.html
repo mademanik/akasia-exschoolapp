@@ -49,13 +49,6 @@
                 </td>
               </ng-container>
 
-              <ng-container matColumnDef="mentorName">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>Mentor Name</th>
-                <td mat-cell *matCellDef="let element">
-                  {{ element.extracurricular.mentor.name }}
-                </td>
-              </ng-container>
-
               <ng-container matColumnDef="startDate">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Date</th>
                 <td mat-cell *matCellDef="let element">
@@ -77,10 +70,39 @@
                 </td>
               </ng-container>
 
-              <ng-container matColumnDef="description">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Action
+                </th>
                 <td mat-cell *matCellDef="let element">
-                  {{ element.description }}
+                  <button
+                    class="btn-icon mat-elevation-z0"
+                    mat-mini-fab
+                    color="primary"
+                    aria-label="Show"
+                    (click)="showDialog(element.id)"
+                  >
+                    <mat-icon>visibility</mat-icon>
+                  </button>
+
+                  <button
+                    class="btn-icon mat-elevation-z0"
+                    mat-mini-fab
+                    color="accent"
+                    aria-label="Show"
+                    (click)="editDialog(element.id)"
+                  >
+                    <mat-icon>mode</mat-icon>
+                  </button>
+                  <button
+                    class="btn-icon mat-elevation-z0"
+                    mat-mini-fab
+                    color="warn"
+                    aria-label="Show"
+                    (click)="deleteDialog(element.id)"
+                  >
+                    <mat-icon>delete</mat-icon>
+                  </button>
                 </td>
               </ng-container>
 
