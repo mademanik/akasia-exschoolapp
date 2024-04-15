@@ -1,0 +1,50 @@
+Notes: Untuk DDL setiap database sudah menggunakan database migration menggunakan Flyway di Springboot
+
+1.mysql-studentdb:
+HOST: localhost
+PORT: 3306
+DATABASE: studentdb
+USERNAME: root
+PASSWORD: root
+
+Script insert student:
+INSERT INTO studentdb.students (created_date,last_updated_date,address,date_of_birth,gender,grade,name,email,phone_number) VALUES
+	 ('2024-04-15 05:39:23.768658','2024-04-15 05:39:23.768692','Margonda, Depok','1994-09-25','MALE','GRADE_6','John Doe','blimanikyasa@gmail.com','083834595233');
+
+2.postgres-extracurriculardb:
+HOST: localhost
+PORT: 5432
+DATABASE: extracurriculardb
+USERNAME: postgres
+PASSWORD: postgres
+
+Script insert mentors :
+INSERT INTO public.mentors (created_date,last_updated_date,address,email,gender,name,phone_number) VALUES
+	 ('2024-04-15 05:39:48.57154','2024-04-15 05:39:48.571569','Sudirman, Jaksel','albert@gmail.com','MALE','Albert','083834595244');
+
+Script insert extracurriculars :
+INSERT INTO public.extracurriculars (created_date,last_updated_date,description,end_date,"location",name,registration_end_date,registration_start_date,start_date,quota,mentor_id) VALUES
+	 ('2024-04-15 05:40:29.340871','2024-04-15 05:40:29.340931','Basket','2024-06-29 17:00:00','School Basket Field','Basket','2024-06-29 17:00:00','2024-04-14 17:00:00','2024-04-14 17:00:00',100,1);
+
+
+3.postgres-registrationdb:
+HOST: localhost
+PORT: 5433
+DATABASE: registrationdb
+USERNAME: postgres
+PASSWORD: postgres
+
+Script insert extracurriculars :
+INSERT INTO public.registrations (created_date,last_updated_date,description,extracurricular_id,student_id) VALUES
+	 ('2024-04-15 05:40:41.271212','2024-04-15 05:40:41.271233','I love basket',1,1);
+
+4.mysql-notificationdb:
+HOST: localhost
+PORT: 3307
+DATABASE: notificationdb
+USERNAME: root
+PASSWORD: root
+
+Script insert notifications:
+INSERT INTO notificationdb.notifications (created_at,message,service_name,to_email) VALUES
+	 ('2024-04-15 12:40:41.330843','Student name : John Doe successfully registered in: Basket Extracurricular','registration-service','blimanikyasa@gmail.com');

@@ -15,7 +15,7 @@ services:
     networks:
       - exschoolapp
 
-  ## mysql-studentdb
+  ## mysql-notificationdb
   mysql-notificationdb:
     container_name: mysql-notificationdb
     image: mysql:latest
